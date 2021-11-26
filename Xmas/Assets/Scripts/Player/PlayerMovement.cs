@@ -8,6 +8,13 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5f;
     public float turnTime = 0.1f;
 
+    bool grounded;
+    public Transform groundCheck;
+    public float groundDistance = 0.3f;
+
+    public LayerMask groundMask;
+    float gravity = -9.8f;
+    Vector3 velocity;
     public Transform cam;
     private Animator animator;
     
@@ -20,10 +27,17 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
+        grounded = Physics.CheckSphere(groundCheck.position,groundDistance,groundMask);
+        
+        if (grounded && velocity.y<0)
+        {
+            velocity.y = -2f;
+        }
+
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        Vector3 direction = new Vector3(horizontal,0f,vertical).normalized;
+        Vector3 direction = new Vector3(horizontal,grounded? 0f: -1f,vertical).normalized;
 
         if(direction.magnitude > 0 && !animator.GetBool("Attacking"))
         {   
@@ -38,5 +52,9 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("Walking",false);
         }
+        velocity.y += gravity;
+
+        controller.Move(velocity * Time.deltaTime);
+
     }
 }

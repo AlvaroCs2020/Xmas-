@@ -36,10 +36,16 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Enemys\EnemyController.cs" />
      <Compile Include="Assets\Scripts\Player\StateMachine\WalkingBehaviour.cs" />
-     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
-     <Compile Include="Assets\Scripts\Player\Weapons\WeaponHandler.cs" />
      <Compile Include="Assets\Scripts\Player\Weapons\StateMachine\BatAttackBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Enemys\Extremity\ExtremityController.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Weapons\BatController.cs" />
+     <Compile Include="Assets\Scripts\Player\Weapons\WeaponHandler.cs" />
+     <Compile Include="Assets\Scripts\Player\Weapons\AttackAux.cs" />
+     <Compile Include="Assets\Scripts\Player\Weapons\HAND\HandAttack.cs" />
+     <None Include="Assets\CiDy\CiDyModels\Buildings\Downtown\BuildingSet\Textures\Please Read - Textures source.txt" />
     <Reference Include="UnityEngine">
         <HintPath>H:\Unity\Dependencies\2020.3.22f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
