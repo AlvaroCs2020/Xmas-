@@ -5,17 +5,20 @@ using UnityEngine;
 public class HandAttack : MonoBehaviour
 {
     public GameObject bloodEffect;
+
     Animator animator;
 
     [SerializeField] private float maxDistance;
+    [SerializeField] private Transform pointA;
+    [SerializeField] private Transform player;
     private void Start() {
         animator = GetComponentInParent<Animator>();
     }
-    private void Update() 
+    public void Attack() 
     {
         
         RaycastHit hit;
-        if(Physics.Raycast(transform.position, transform.up,out hit, maxDistance) && animator.GetBool("Attacking"))
+        if(Physics.Raycast(pointA.position, player.forward,out hit, maxDistance))
         {
             Debug.Log(hit.transform.name);
             ExtremityController extremityController = hit.transform.GetComponent<ExtremityController>();
@@ -26,11 +29,13 @@ public class HandAttack : MonoBehaviour
                 extremityController.ExtremityTakeDamage(10f);   
             }
 
+
         } 
+        
         
     }
     private void OnDrawGizmos() 
     {
-        Gizmos.DrawRay(transform.position, transform.up*maxDistance);
+        Gizmos.DrawRay(pointA.position, player.forward*maxDistance);
     }
 }

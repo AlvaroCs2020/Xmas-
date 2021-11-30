@@ -13,7 +13,7 @@ public class WalkingBehaviour : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(Input.GetMouseButtonDown(0))
+        if((Input.GetMouseButtonDown(0) || Input.GetKeyDown ("joystick button 2")) && !animator.GetBool("Attacking"))
             animator.SetTrigger("Attack");
     }
 

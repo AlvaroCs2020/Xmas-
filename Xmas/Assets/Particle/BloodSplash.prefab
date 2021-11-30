@@ -48,15 +48,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2221294028034067804, guid: 9dd75a80c035e884d821198f13e9a43c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.08
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2221294028034067804, guid: 9dd75a80c035e884d821198f13e9a43c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.08
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2221294028034067804, guid: 9dd75a80c035e884d821198f13e9a43c, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.08
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2221294028034067804, guid: 9dd75a80c035e884d821198f13e9a43c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -112,7 +112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7516598981991476459, guid: 9dd75a80c035e884d821198f13e9a43c, type: 3}
       propertyPath: ShapeModule.type
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7516598981991476459, guid: 9dd75a80c035e884d821198f13e9a43c, type: 3}
       propertyPath: ShapeModule.angle

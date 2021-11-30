@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 direction = new Vector3(horizontal,grounded? 0f: -1f,vertical).normalized;
 
-        if(direction.magnitude > 0 && !animator.GetBool("Attacking"))
+        if(direction.magnitude > 0 && !( animator.GetBool("Attacking") && animator.GetBool("Bat") ))
         {   
             animator.SetBool("Walking",true);
             float targetAngle = Mathf.Atan2(direction.x,direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
