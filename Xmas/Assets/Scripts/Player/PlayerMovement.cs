@@ -11,7 +11,11 @@ public class PlayerMovement : MonoBehaviour
     bool grounded;
     public Transform groundCheck;
     public float groundDistance = 0.3f;
-
+    //
+    public Transform pointA;
+    [SerializeField] private Transform player;
+    public float attackAngle;
+    //
     public LayerMask groundMask;
     float gravity = -9.8f;
     Vector3 velocity;
@@ -38,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
 
         Vector3 direction = new Vector3(horizontal,grounded? 0f: -1f,vertical).normalized;
-
+        velocity.y += gravity;
         if(direction.magnitude > 0 && !( animator.GetBool("Attacking") && animator.GetBool("Bat") ))
         {   
             animator.SetBool("Walking",true);
