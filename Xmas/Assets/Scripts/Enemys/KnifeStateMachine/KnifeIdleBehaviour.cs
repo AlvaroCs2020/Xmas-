@@ -13,12 +13,16 @@ public class KnifeIdleBehaviour : StateMachineBehaviour
         target = animator.GetComponent<EnemyController>().target;
         navMeshAgent = animator.GetComponent<NavMeshAgent>();
         navMeshAgent.SetDestination(animator.transform.position);
+        navMeshAgent.updateRotation = true;
         //habria que ver como encontrar al target
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if(Vector3.Distance(animator.transform.position, target.position) <= 2f)
+            animator.SetTrigger("Attack");
+            
         if(Vector3.Distance(animator.transform.position, target.position) > 2f)
         {
             navMeshAgent.SetDestination(target.position);

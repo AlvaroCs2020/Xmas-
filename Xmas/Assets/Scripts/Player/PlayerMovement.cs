@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
+    public float health;
     public float speed = 5f;
     public float turnTime = 0.1f;
 
@@ -24,7 +25,8 @@ public class PlayerMovement : MonoBehaviour
     
     float turnVel;
     // Update is called once per frame
-    void Start() {
+    void Start() 
+    {
         animator = GetComponentsInChildren<Animator>()[0];
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;    
@@ -60,5 +62,10 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
 
+    }
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        
     }
 }

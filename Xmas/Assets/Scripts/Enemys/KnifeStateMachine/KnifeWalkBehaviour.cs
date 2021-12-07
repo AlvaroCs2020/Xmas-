@@ -11,6 +11,7 @@ public class KnifeWalkBehaviour : StateMachineBehaviour
     {
         target = animator.GetComponent<EnemyController>().target;
         navMeshAgent = animator.GetComponent<UnityEngine.AI.NavMeshAgent>();
+        navMeshAgent.updateRotation = true;
         //habria que ver como encontrar al target
     }
 

@@ -8,33 +8,27 @@ public class KnifeWalkBackBehaviour : StateMachineBehaviour
     Transform target;
 
     Vector3 relativePoint;
-    private void FaceTarget(Vector3 destination, Animator animator)
-    {
-        Vector3 lookPos = destination - animator.transform.position;
-        lookPos.y = 0;
-        Quaternion rotation = Quaternion.LookRotation(lookPos);
-        animator.transform.rotation = Quaternion.Slerp(animator.transform.rotation, rotation, 1f);  
-    }
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         target = animator.GetComponent<EnemyController>().target;
         navMeshAgent = animator.GetComponent<UnityEngine.AI.NavMeshAgent>();
-        FaceTarget(target.position, animator);
+
         navMeshAgent.updateRotation = false;
         Vector3 relativePoint = animator.transform.InverseTransformPoint(target.position);
         navMeshAgent.SetDestination(relativePoint*(-1.5f));
     }
 
     // // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        FaceTarget(target.position, animator);
-    }
+    // override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    // {
+    //     FaceTarget(target.position, animator);
+    // }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
+    {  
         navMeshAgent.updateRotation = true;
     }
 

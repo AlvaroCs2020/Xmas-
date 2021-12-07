@@ -58,7 +58,6 @@ public class HandAttack : MonoBehaviour
     public void BatAttack()
     {
         RaycastHit hit;
-        Debug.Log(Physics.Raycast(pointB.position, pointB.up,out hit, 2.3f));
         if(Physics.Raycast(pointB.position, pointB.up,out hit, 2.3f) )
         {
             // Debug.Log(hit.transform.name);
