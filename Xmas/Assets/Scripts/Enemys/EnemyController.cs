@@ -19,10 +19,12 @@ public class EnemyController : MonoBehaviour
    void Start()
     {   
         navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent.speed = Random.Range(2f, 4f);
         animator = GetComponent<Animator>();
         enemyAttack = GetComponentsInChildren<AttackEnemyController>()[0];
         rigidbodies = transform.GetComponentsInChildren<Rigidbody>();
         SetEnabled(false);
+
     }
     // Start is called before the first frame update   
     private void Update() {
@@ -46,6 +48,10 @@ public class EnemyController : MonoBehaviour
     public void BottleAttack()
     {
         enemyAttack.BottleAttack();
+    }
+    public void ShovelAttack()
+    {
+        enemyAttack.ShovelAttack();
     }
     public void TakeDamage(float damage)
     {

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5372938985664865474}
   m_Layer: 0
   m_Name: BloodSplash
-  m_TagString: Untagged
+  m_TagString: BloodEffect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,15 +60,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2221294028034067804, guid: 9dd75a80c035e884d821198f13e9a43c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.254527
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2221294028034067804, guid: 9dd75a80c035e884d821198f13e9a43c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.39164317
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2221294028034067804, guid: 9dd75a80c035e884d821198f13e9a43c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.2832026
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2221294028034067804, guid: 9dd75a80c035e884d821198f13e9a43c, type: 3}
       propertyPath: m_LocalRotation.w

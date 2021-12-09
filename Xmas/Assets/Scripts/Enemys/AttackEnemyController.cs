@@ -9,13 +9,45 @@ public class AttackEnemyController : MonoBehaviour
     public Transform AttackBase;
 
     [SerializeField] private Transform Bottle;
+    [SerializeField] private Transform Shovel;
     public float damage;
 
     public float attackAngle;
     public float BottleAttackAngle;
     GameObject bloodEffect;
+    Transform[] weapons;
+    Animator animator;
+    public int weaponIndex;
+    string weaponName;
     private void Start() {
         bloodEffect = GameObject.FindGameObjectsWithTag("BloodEffect")[0];
+        animator = GetComponentInParent<Animator>();
+        weapons = GetComponentsInChildren<Transform>();
+        
+        switch(weaponIndex)
+        {
+            case 2:
+                weaponName = "Bottle";
+                animator.SetLayerWeight(2,1f);
+                break;
+            case 3:
+                weaponName = "shovel0";
+                animator.SetLayerWeight(3,1f);
+                break;
+            default:
+                animator.SetLayerWeight(1,1f);
+                weaponName = "Knife";
+                break;
+
+        }
+
+
+        foreach (Transform t in weapons)
+        {
+            if(t.name != weaponName && t.name != "WeaponHolder" && t.name != "default")
+                t.gameObject.SetActive(false);
+        }
+        
     }
     public void KnifeAttack()
     {
@@ -32,11 +64,15 @@ public class AttackEnemyController : MonoBehaviour
     }
     public void BottleAttack()
     {
-        Debug.Log("1");
         RaycastHit hit;
         if(Physics.Raycast(Bottle.position, Bottle.up,out hit,1.3f) )
-            rayAttack(hit); 
-          
+            rayAttack(hit);       
+    }
+    public void ShovelAttack()
+    {
+        RaycastHit hit;
+        if(Physics.Raycast(Shovel.position, Shovel.up,out hit,3f,enemyLayer))
+            rayAttack(hit);              
     }
     private void rayAttack(RaycastHit hit)
     {
@@ -59,6 +95,6 @@ public class AttackEnemyController : MonoBehaviour
         // Gizmos.DrawRay(AttackBase.position, thrdAttack*0.8f);
         //Vector3 bottleAttack = new Vector3(Mathf.Cos(BottleAttackAngle)*Bottle.forward.x-Mathf.Sin(BottleAttackAngle)*Bottle.forward.z,Bottle.forward.y,Mathf.Sin(BottleAttackAngle)*Bottle.forward.x+Mathf.Cos(BottleAttackAngle)*Bottle.forward.z);
         //Gizmos.DrawRay(Bottle.position, bottleAttack*1f);
-        Gizmos.DrawRay(Bottle.position, Bottle.up*1.3f);
+        Gizmos.DrawRay(Shovel.position, Shovel.up*3f);
     }
 }

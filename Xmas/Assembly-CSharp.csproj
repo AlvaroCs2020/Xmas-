@@ -43,6 +43,7 @@
      <Compile Include="Assets\Scripts\Player\Weapons\StateMachine\BatAttackBehaviour.cs" />
      <Compile Include="Assets\test.cs" />
      <Compile Include="Assets\Scripts\Enemys\KnifeStateMachine\KnifeWalkBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Enemys\AttackEnemyController.cs" />
      <Compile Include="Assets\Scripts\Player\Weapons\StateMachine\PunchAttack3Behaviour.cs" />
      <Compile Include="Assets\Scripts\Enemys\Extremity\ExtremityController.cs" />
      <Compile Include="Assets\Scripts\Player\Weapons\StateMachine\PunchAttackBehaviour.cs" />
@@ -56,7 +57,7 @@
      <Compile Include="Assets\Scripts\Player\Weapons\WeaponHandler.cs" />
      <Compile Include="Assets\Scripts\Player\ExtremityPlayer.cs" />
      <Compile Include="Assets\Scripts\Enemys\KnifeStateMachine\KnifeIdleBehaviour.cs" />
-     <Compile Include="Assets\Scripts\Enemys\AttackEnemyController.cs" />
+     <Compile Include="Assets\Scripts\Enemys\EnemyWeaponController.cs" />
      <None Include="Assets\CiDy\CiDyModels\Buildings\Downtown\BuildingSet\Textures\Please Read - Textures source.txt" />
     <Reference Include="UnityEngine">
         <HintPath>H:\Unity\Dependencies\2020.3.22f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
